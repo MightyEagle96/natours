@@ -1,0 +1,49 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "the natours project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "cross-env NODE_ENV=production nodemon server.js",
+    "debug": "ndb server.js",
+    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+    "build:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+  },
+  "author": "The Mighty Eagle",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "@stripe/stripe-js": "^1.8.0",
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.0.0",
+    "express-rate-limit": "^5.1.1",
+    "helmet": "^3.22.0",
+    "hpp": "^0.2.3",
+    "html-to-text": "^5.1.1",
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.10",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "ndb": "^1.1.5",
+    "nodemailer": "^6.4.6",
+    "prettier": "^2.0.5",
+    "pug": "^2.0.4",
+    "request": "^2.88.2",
+    "sharp": "^0.25.4",
+    "sib-api-v3-sdk": "^7.2.4",
+    "slugify": "^1.4.0",
+    "stripe": "^8.79.0",
+    "validator": "^13.0.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "parcel-bundler": "^1.12.4"
+  }
+}
