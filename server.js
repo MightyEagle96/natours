@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-// process.on('uncaughtException', (err) => {
-//   console.log('UNCAUGHT EXCEPTION 🦅. Shutting down...');
-//   console.log(err.name, err.message);
-//   //to shut down the application in case of a DB problem
-//   process.exit(1); //0 stands for success and 1 for uncalled exception
-// });
+process.on('uncaughtException', (err) => {
+  console.log('UNCAUGHT EXCEPTION 🦅. Shutting down...');
+  console.log(err.name, err.message);
+  //to shut down the application in case of a DB problem
+  process.exit(1); //0 stands for success and 1 for uncalled exception
+});
 
 dotenv.config({ path: './config.env' });
 const app = require('./app');
@@ -16,10 +16,11 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 const DBLocal = process.env.DATABASE_LOCAL;
+const DBOnline = DB;
 mongoose
   .connect(
     //process.env.DATABASE_LOCAL, {
-    DBLocal,
+    DBOnline,
     {
       useNewUrlParser: true,
       useCreateIndex: true,

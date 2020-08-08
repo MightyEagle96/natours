@@ -12,10 +12,11 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 const DBLocal = process.env.DATABASE_LOCAL;
+const DBOnline = DB;
 mongoose
   .connect(
     //process.env.DATABASE_LOCAL, {
-    DBLocal,
+    DBOnline,
     {
       useNewUrlParser: true,
       useCreateIndex: true,
@@ -37,8 +38,8 @@ const reviews = JSON.parse(
 const importData = async () => {
   try {
     //await Tour.create(tours);
-    await User.create(users, { validateBeforeSave: false });
-    //await Review.create(reviews);
+    //await User.create(users, { validateBeforeSave: false });
+    await Review.create(reviews);
     console.log('Data created successfully');
   } catch (error) {
     console.log(error);
@@ -48,8 +49,8 @@ const importData = async () => {
 //DELETE DATA
 const deleteData = async () => {
   try {
-    //await Tour.deleteMany();
-    await User.deleteMany();
+    await Tour.deleteMany();
+    //await User.deleteMany();
     //await Review.deleteMany();
     console.log('Data deleted successfully');
   } catch (error) {}

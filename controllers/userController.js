@@ -53,7 +53,6 @@ const filterObj = (obj, ...allowedFields) => {
 exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
 exports.updateMe = catchAsync(async (req, res, next) => {
-  console.log(req.file);
   //1. create error is user posts password data
   if (req.body.password || req.body.confirmPassword) {
     return next(
